@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Startup Validator | Validate Your Billion-Dollar Idea</title>
+    <meta name="description"
+        content="Get instant AI-powered validation for your startup idea. Analyze market potential, risks, monetization strategies, and investor appeal.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="floating-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5" />
+                    <path d="M2 12l10 5 10-5" />
+                </svg>
+            </div>
+            <span class="brand-text">StartupValidator<span class="brand-ai">.ai</span></span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <button class="nav-history-btn" id="history-btn">History</button>
+            <a href="#input-section" class="nav-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Idea Validator
+            </div>
+            <h1 class="hero-title">
+                Validate Your Startup Idea<br>
+                <span class="gradient-text">In Seconds, Not Months</span>
+            </h1>
+            <p class="hero-subtitle">
+                Get instant AI-powered analysis from 4 expert perspectives:
+                Market Research, Risk Analysis, Monetization Strategy, and Investor Appeal.
+            </p>
+
+            <!-- Input Section -->
+            <div class="input-section" id="input-section">
+                <div class="input-wrapper">
+                    <textarea id="startup-idea" class="idea-input"
+                        placeholder="Describe your startup idea... (e.g., An AI platform that helps restaurants reduce food waste by predicting daily demand)"
+                        rows="3"></textarea>
+                    <button id="validate-btn" class="validate-btn">
+                        <span class="btn-text">Validate My Idea</span>
+                        <span class="btn-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <div class="input-hints">
+                    <span class="hint">💡 Be specific about your target market and solution</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Grid (visible initially) -->
+        <div class="features-preview" id="features">
+            <div class="feature-card">
+                <div class="feature-icon market">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3v18h18" />
+                        <path d="M18 17V9M13 17V5M8 17v-3" />
+                    </svg>
+                </div>
+                <h3>Market Analysis</h3>
+                <p>Deep dive into market size, competition, and growth potential</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon risk">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 9v4M12 17h.01" />
+                        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                    </svg>
+                </div>
+                <h3>Risk Assessment</h3>
+                <p>Identify technical, business, and regulatory risks</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon money">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v12M9 9h6M9 15h6" />
+                    </svg>
+                </div>
+                <h3>Monetization</h3>
+                <p>Revenue models, pricing strategies, and path to profit</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon investor">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                </div>
+                <h3>Investor View</h3>
+                <p>See your idea through a VC's eyes with investment potential</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading State -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <h2 class="loading-title">Analyzing Your Startup Idea</h2>
+            <p class="loading-subtitle" id="loading-status">Running 4 AI agents in parallel...</p>
+            <div class="loading-agents">
+                <div class="agent-status" id="status-market">
+                    <span class="status-icon analyzing"></span>
+                    <span>Market Research</span>
+                </div>
+                <div class="agent-status" id="status-risk">
+                    <span class="status-icon analyzing"></span>
+                    <span>Risk Analysis</span>
+                </div>
+                <div class="agent-status" id="status-money">
+                    <span class="status-icon analyzing"></span>
+                    <span>Monetization</span>
+                </div>
+                <div class="agent-status" id="status-investor">
+                    <span class="status-icon analyzing"></span>
+                    <span>Investor View</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results-section" id="results-section">
+        <div class="results-header">
+            <div class="results-actions">
+                <button class="back-btn" id="back-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    New Analysis
+                </button>
+                <button class="export-btn" id="export-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                    </svg>
+                    Export PDF
+                </button>
+            </div>
+            <h2 class="results-title">Validation Results</h2>
+            <p class="results-idea" id="results-idea"></p>
+        </div>
+
+        <div class="results-grid">
+            <!-- Market Analysis Card -->
+            <div class="result-card market" id="card-market">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18" />
+                                <path d="M18 17V9M13 17V5M8 17v-3" />
+                            </svg>
+                        </div>
+                        <h3>Market Analysis</h3>
+                    </div>
+                    <div class="card-actions">
+                        <button class="card-action-btn card-export-btn" data-card="market" title="Export to PDF">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                            </svg>
+                        </button>
+                        <button class="card-action-btn card-expand-btn" data-card="market" title="Expand">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content" id="content-market">
+                    <!-- Content loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Risk Analysis Card -->
+            <div class="result-card risk" id="card-risk">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 9v4M12 17h.01" />
+                                <path
+                                    d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                            </svg>
+                        </div>
+                        <h3>Risk Assessment</h3>
+                    </div>
+                    <div class="card-actions">
+                        <button class="card-action-btn card-export-btn" data-card="risk" title="Export to PDF">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                            </svg>
+                        </button>
+                        <button class="card-action-btn card-expand-btn" data-card="risk" title="Expand">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content" id="content-risk">
+                    <!-- Content loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Monetization Card -->
+            <div class="result-card money" id="card-money">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v12M9 9h6M9 15h6" />
+                            </svg>
+                        </div>
+                        <h3>Monetization Strategy</h3>
+                    </div>
+                    <div class="card-actions">
+                        <button class="card-action-btn card-export-btn" data-card="money" title="Export to PDF">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                            </svg>
+                        </button>
+                        <button class="card-action-btn card-expand-btn" data-card="money" title="Expand">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content" id="content-money">
+                    <!-- Content loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Investor View Card -->
+            <div class="result-card investor" id="card-investor">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
+                        </div>
+                        <h3>Investor Perspective</h3>
+                    </div>
+                    <div class="card-actions">
+                        <button class="card-action-btn card-export-btn" data-card="investor" title="Export to PDF">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                            </svg>
+                        </button>
+                        <button class="card-action-btn card-expand-btn" data-card="investor" title="Expand">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content" id="content-investor">
+                    <!-- Content loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Built with ❤️ using Google ADK & Gemini AI</p>
+    </footer>
+
+    <!-- Card Modal -->
+    <div class="card-modal" id="card-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <div class="modal-icon" id="modal-icon">
+                        <!-- Icon will be set dynamically -->
+                    </div>
+                    <h2 id="modal-title">Title</h2>
+                </div>
+                <button class="modal-close" id="modal-close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- History Panel -->
+    <div class="history-overlay" id="history-overlay"></div>
+    <div class="history-panel" id="history-panel">
+        <div class="history-header">
+            <h2>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Validation History
+            </h2>
+            <button class="history-close" id="history-close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div class="history-content" id="history-content">
+            <!-- History items will be loaded dynamically -->
+        </div>
+        <div class="history-footer">
+            <button class="history-clear-btn" id="history-clear-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+                Clear All History
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

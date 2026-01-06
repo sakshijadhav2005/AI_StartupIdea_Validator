@@ -1,0 +1,12 @@
+# Render.com Blueprint Configuration
+services:
+  - type: web
+    name: ai-startup-validator
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.11"
