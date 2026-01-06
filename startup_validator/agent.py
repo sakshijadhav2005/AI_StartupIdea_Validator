@@ -21,7 +21,7 @@ retry_config = types.HttpRetryOptions(
 # Market Research Agent
 market_agent = Agent(
     name="MarketResearchAgent",
-    model=Gemini(model="gemini-2.5-flash-lite", retry_options=retry_config),
+    model=Gemini(model="gemini-2.0-flash", retry_options=retry_config),
     tools=[google_search],
     instruction="""
     You are a market research expert. Analyze the startup idea provided.
@@ -41,7 +41,7 @@ market_agent = Agent(
 # Risk Analysis Agent
 risk_agent = Agent(
     name="RiskAnalysisAgent",
-    model=Gemini(model="gemini-2.5-flash-lite", retry_options=retry_config),
+    model=Gemini(model="gemini-2.0-flash", retry_options=retry_config),
     instruction="""
     You are a risk analysis expert. Analyze the startup idea provided.
     
@@ -59,7 +59,7 @@ risk_agent = Agent(
 # Monetization Agent
 monetization_agent = Agent(
     name="MonetizationAgent",
-    model=Gemini(model="gemini-2.5-flash-lite", retry_options=retry_config),
+    model=Gemini(model="gemini-2.0-flash", retry_options=retry_config),
     instruction="""
     You are a business model expert. Analyze the startup idea provided.
     
@@ -78,7 +78,7 @@ monetization_agent = Agent(
 # Investor Lens Agent
 investor_agent = Agent(
     name="InvestorLensAgent",
-    model=Gemini(model="gemini-2.5-flash-lite", retry_options=retry_config),
+    model=Gemini(model="gemini-2.0-flash", retry_options=retry_config),
     instruction="""
     You are an experienced venture capital investor. Evaluate the startup idea provided.
     
